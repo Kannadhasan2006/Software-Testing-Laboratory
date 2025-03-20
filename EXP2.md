@@ -16,26 +16,56 @@ Algorithm:
 5. Perform matrix multiplication and store the answer in result.
 6. Stop the program.
 ### Program:
+r1, c1 = input("Enter row and column count in matrix 1: ").split()
+r2, c2 = input("Enter row and column count in matrix 2: ").split()
+matrix1 = []
+matrix2 = []
+result = []
 
+if r1.isnumeric() and c1.isnumeric() and r2.isnumeric() and c2.isnumeric():
+    r1 = int(r1)
+    r2 = int(r2)
+    c1 = int(c1)
+    c2 = int(c2)
+    if c1 != r2:
+        print("Matrix multiplication not possible")
+    elif max(r1, c1, r2, c2) > 20 or min(r1, c1, r2, c2) == 0:
+        print("Matrix multiplication not possible")
+    else:
+        for i in range(r1):
+            a = []
+            for j in range(c1):
+                a.append(int(input("<-")))
+            matrix1.append(a)
 
+        for i in range(r2):
+            a = []
+            for j in range(c2):
+                a.append(int(input("<-")))
+            matrix2.append(a)
 
+        for i in range(r1):
+            inter = []
+            for j in range(c2):
+                total = 0
+                for k in range(r2):
+                    total += matrix1[i][k] * matrix2[k][j]
+                inter.append(total)
+            result.append(inter)
 
-
-
-
-
-
-
-
-
+        for i in range(r1):
+            for j in range(c2):
+                print(result[i][j], end=" ")
+            print()
+else:
+    print("Enter a valid number")
 
 ### Output:
-
-
-
-
-
-
+output 1:![Screenshot (48)](https://github.com/user-attachments/assets/b5ef410c-f25f-4574-ac0f-b8a6c04c8a37)
+output 2:![Screenshot (49)](https://github.com/user-attachments/assets/6d64c9fd-15ce-4b65-89df-2c723ecff1f2)
+output 3:![Screenshot (50)](https://github.com/user-attachments/assets/e116f5cf-ff16-465c-8c35-7f8dda2dcc6f)
+output 4:![Screenshot (51)](https://github.com/user-attachments/assets/1569554a-6bbc-44b2-b055-cc454f1301ae)
+output 5:![Screenshot (52)](https://github.com/user-attachments/assets/89153da8-ac1f-4986-b848-88c0b7e41109)
 ### Result:
 Thus, the python program for matrix multiplication is implemented and the causes for its failure is introspected successfully.
 
